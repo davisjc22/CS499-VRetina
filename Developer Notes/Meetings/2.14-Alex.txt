@@ -1,0 +1,41 @@
+2/14/20 Meeting with Alex Wyllie from the previous group
+
+What was the goal of the project?
+What features have you implemented?
+What difficulties did you encounter while working with the AR/VR versions?
+What do you think of us switching to a different platform (Unity)?
+
+Purpose of meeting - Meeting with prev group member, try to get cardboard stuff to work
+
+They did a refactor, and it broke stuff, but on 2/12 Alex pushed code to undo refactor. 
+3 apps in the repo
+	Android
+	iOS
+	AR - iOS - dont bother without xCode and mac.
+
+To get stuff working-
+	Make sure stuff is cloned properly and up to date.
+	Same build process as hello project app
+	Under gradle scripts, sdk -> Tasks -> build -> assemble. Should take 5ish mins.
+	Afterwards, can be run on emulator.
+	Install stuff for cardboard demo app. And nothing else should be required.
+
+	In build, settings, make sure to have offline work enabled.
+
+Code for android app is in C++
+hello_cardboard.cc is where most of the code is
+	Where we call the shape and image and make it render?
+
+Unity was the original workflow with cardboard, but it deprecated
+Hardest part with the project was fighting android studio, and getting the cardboard deprecated.
+iOS app was made quickly, easily. Android was tough
+Not a coding heavy project, more of a working through a non-compliant library/ api project.
+
+Create a new launching point for the app (in java). Traditional app development
+
+Was there more than just a picture of the eye? No
+170 by 200 degree pictures?
+Demo was the picture on a circle, instead of on the inside of a semi-sphere
+
+Original plan was to make it widely available. Which is why google cardboard route was taken
+

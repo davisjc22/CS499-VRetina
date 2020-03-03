@@ -1,0 +1,11 @@
+2/6/20 Team Meeting
+
+Plan to meet next tuesday, 2/11/2020, 
+Everyone will attempt on their own to get the previous 499 team’s source code running in Android Studio. From there we will evaluate what should be kept and what needs to be changed. 
+
+Non-functional:
+Speed
+Online vs offline gallery
+Platforms for publishing the app
+Quality of the image
+

@@ -1,0 +1,40 @@
+2/4/20 Meeting with Paras
+
+High level, vr/ar based to look at the back of the eye in 3D
+Originally thought could use 3d images… actually very hard to accomplish
+Rn the scope for last semester was taking one image and saying its two different images like left and right
+Want to look at tears in rental, diseases, etc that give you a better idea of what it could look like in real life.
+He will send the video to us of the simulation -vr version
+Also showed the ar video - AR version would be a space you can see all around the eye in
+Ar is in swift and only for ios 
+Vr is only for android
+
+Had issued with cross-platform development, maybe we will have more luck…
+Up to us with sticking with ios or android or cross-platform to just get somewhere where it works.
+
+Ideal scope:
+Not a whole classroom using this, limited to residents who are training to look at eyes to jumpstart their training. I guess this means it would be an individual using at once. 
+There would be more support for developing for an oculus (he wants more portable) could probably find funding to mess around with that. Ideally maybe letting this be something people could just download and not have to have an oculus to use. 
+
+He hasn’t set up the android studio on a machine yet but it can be (should be able to be at least)
+
+Can you make sure the code is publishable to the store
+Add labels to images and have them show up when you are looking at that specific feature. could provide a json list of coordinates and maybe colors for the labels
+Gallery of images to choose from where you could upload to the headset
+Refine spherical projection, right now it’s on a half sphere about 200 degree image and we want to make the projection more accurate than it already is because right now they are just placing an image in the back of a sphere, better reproduce what it would really look like
+
+Is there a way to connect to a server that has the images rather than locally so that new images can be added
+Useful tool - be able to put it on a phone and use it without any kind of headset so they can just move the mage around on their phone.
+Better represent 2d slides = annotations and labels if they highlight over a part of the eye can they guess then show the answer
+
+The hard goal shouldn’t be publishing to app store.
+Get it to be a deployable application is a goal
+Gallery and highlighting is of higher priority
+
+How are retinal photos made?
+Right now just have 2d wide images, technically camera used in clinic has a way to take a left and right eye picture but they haven’t fully figured it out yet. They played around with what if they took images, so there’s a 3d surgical microscope that takes 3d images so the idea was can we merge a bunch of images from the video to create a larger 3d image of the retina...can this be done automatically, it would be hard because you don’t know the representation the image would have
+Right now they always know 200 degree wide camera but the new 3d  way different lens and things could throw it off so this wouldn’t be a focus of ours.
+
+Android vr is different from google cardboard - the old team has mostly shifted to the android vr
+Main priority - a level of intractability - selecting different images and modes - some amount of gaze control is built in, may have to figure out how to gain access to it but once they focus for like a second show the label or quiz them
+

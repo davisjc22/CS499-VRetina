@@ -1,0 +1,14 @@
+Sarah Sbert - Developer Log
+
+Progress made through 2/17/2020
+- We met with Paras and discussed the scope of the project and main features to be implemented.
+  Such features included a quiz mode and learning mode, a database to store a collection of retina images for each eye, and a menu for the 
+  user to select which mode they would like to use.
+- We met with Alex Wyllie and discussed the state of the current project and the difficulties and issues the previous team expereinced
+  with android studio and getting the functionality of application to work properly.
+- We had several team meetings discussing the application and the team assignments due in class.
+  In one of these team meetings we discussed and completed the user story assignment.
+  In another one of the meetings, we discussed and distributed the work for the requirements documentation.
+  We also came to the conclusion that using Unity would be a more efficient way to implement this project.
+- More detailed information is in the team's Developer Notes in the Meetings folder where we recorded notes for each of the 
+  meetings that were briefly discussed above.
