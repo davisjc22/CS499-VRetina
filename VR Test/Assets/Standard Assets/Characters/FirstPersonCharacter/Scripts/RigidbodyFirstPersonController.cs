@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.XR;
 using UnityStandardAssets.CrossPlatformInput;
 
 namespace UnityStandardAssets.Characters.FirstPerson
@@ -120,6 +122,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void Start()
         {
+            StartCoroutine(LoadDevice("cardboard"));
             m_RigidBody = GetComponent<Rigidbody>();
             m_Capsule = GetComponent<CapsuleCollider>();
             mouseLook.Init (transform, cam.transform);
@@ -188,6 +191,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jump = false;
         }
 
+        IEnumerator LoadDevice(string newDevice)
+        {
+            if (String.Compare(XRSettings.loadedDeviceName, newDevice, true) != 0)
+            {
+                XRSettings.LoadDeviceByName(newDevice);
+                yield return null;
+                XRSettings.enabled = true;
+            }
+        }
 
         private float SlopeMultiplier()
         {
