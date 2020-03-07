@@ -9,3 +9,26 @@ Online vs offline gallery
 Platforms for publishing the app
 Quality of the image
 
+3/3/2020 Team Meeting
+
+Connor making a new repo
+AR and VR versions working on android
+We need to fix eyeball shape
+Diffuse lighting, rather than point lighting
+Menus/Intractability
+Labelling
+Quiz Mode
+Database
+Set up meeting with Paras for ⅗
+
+3/5/2020 Team Meeting
+
+We met with Paras first then held a team meeting.
+Does Paras have server we can use?
+Jarren will work on post request for getting an image?
+Goes in a folder in the repo
+Dockerize it
+Have to be able to save images locally too
+In unity have a folder 
+Ask paras where he wants the images stored
+
