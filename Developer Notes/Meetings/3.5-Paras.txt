@@ -1,0 +1,41 @@
+3/5/2020 meeting with Paras
+
+- Demo of what we’ve done in Unity
+- VR does the split eye
+- Need to figure out how to get the right eyeball shape
+- Not a way to go back yet have to restart the app to get into AR from VR
+- Initial thought - good so far, likes that you can find the spot to put it and look at it in real time
+    - VR being able to have it so you can look at it in 3d vs ar thats 2d with spatial visuals
+    - In an ideal sense wants it to look more like the entire picture projected onto the hemisphere and look more convex rather than concave and you could walk up to it and look around it on the inside of the eye. 
+    - Same idea for vr have it closer up and then you can look around it and see the parts a little closer up
+    - Gaze control in unity - the idea that there will be a pointer that follows you so when you gaze on a certain part of the space it will load or work as a clicker to load that space and see options so you can highlight things and get labels of what they are looking at
+    - Get a back button
+    - AR - buttons make the most sense
+    - Performance seems really good on the device
+- Size of the eyeball - having a fixed size means in AR world you can walk closer or further, in VR you want it to be big enough so you can’t see the whole thing when it loads but small enough so they don’t have to move a crazy amount to be able to see other parts of the eye
+- Gaze control to zoom in and zoom out could be a button to have
+- For now, lets just make the eye bigger
+- Shape of eye - hollow half sphere - usually images he sent are 200 degree field of view rather than 360 field of view, not sure on height, pictures may have different height - we can set a height and crop images if need be. It will be trial and error with photo placement and size to determine if you need to shrink or stretch images
+- They are still trying to get the 3d images but that’s at a standstill right now
+    - He will send that to us when he gets the images
+- Different modes
+    - Being able to label, so if they take a picture they can highlight a couple of things/abnormalities - highlight all of those at once, make coordinates of where they are located and transform them onto the spherical plane.
+    - Data structure to store name, location (could have more than one), shape, of abnormalities 
+        - Idea is you could hover over one of those things and it would highlight all of them and tell you what the abnormality was to teach people about
+    - Quiz mode
+        - Can you find this object and you would hover over all the things that matched that 
+        - How do we do highlighting - small circles or coordinates are assigned manually, or hover over different masks (gaze control) and have it light up a different color for different masks (a way to do it without creating a json and a way to label all of them)
+- Get a menu
+    - Start the app -> vr or ar 
+    - Vr -> gallery -> select image -> open up the image in the space so you can look at it -> button to start quiz mode or teaching mode
+        - Issue with vr may be finding the center point so you could add a delay from where the center occurs, 
+        - With oculus there is a button to recenter the headset, so we could find a button for that
+    - Ar -> gallery -> select image -> open image -> button starts quiz or teaching mode (or a tap or cursor that highlights things it touches). You could require people to make their phone landscape to avoid issues of 
+- Get a gallery to select images from and load those images in
+    - Who can access the database - only Paras has access to upload images to the database and then a check in the app to see if new images are available. Automatically lets anyone using the app access the gallery/database
+- Database and viewing takes priority over labeling and quizzing
+- All good to completely abandon the code from other team
+- He’s ok with looking at our github and helping if we get stuck
+- He will send a zip file of images we can use, heights and widths may be off and we can crop as we see fit
+- Image on the inside to better represent the anatomy
+ - Put a blank, black texture on the back, maybe with a note for them to go to the other side so it’s not just an invisible texture
