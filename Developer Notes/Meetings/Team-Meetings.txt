@@ -1,0 +1,34 @@
+2/6/20 Team Meeting
+
+Plan to meet next tuesday, 2/11/2020, 
+Everyone will attempt on their own to get the previous 499 team’s source code running in Android Studio. From there we will evaluate what should be kept and what needs to be changed. 
+
+Non-functional:
+Speed
+Online vs offline gallery
+Platforms for publishing the app
+Quality of the image
+
+3/3/2020 Team Meeting
+
+Connor making a new repo
+AR and VR versions working on android
+We need to fix eyeball shape
+Diffuse lighting, rather than point lighting
+Menus/Intractability
+Labelling
+Quiz Mode
+Database
+Set up meeting with Paras for ⅗
+
+3/5/2020 Team Meeting
+
+We met with Paras first then held a team meeting.
+Does Paras have server we can use?
+Jarren will work on post request for getting an image?
+Goes in a folder in the repo
+Dockerize it
+Have to be able to save images locally too
+In unity have a folder 
+Ask paras where he wants the images stored
+
