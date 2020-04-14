@@ -147,7 +147,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if(Physics.Raycast(ray, out hit))
                 {
-                    Debug.Log("name" + hit.transform.name);
+                    Debug.Log("name = " + hit.transform.name);
                     if(hit.transform.name == "Main Menu Cube") // Acts as return to main menu button
                     {
                         SceneManager.LoadScene("Start");
