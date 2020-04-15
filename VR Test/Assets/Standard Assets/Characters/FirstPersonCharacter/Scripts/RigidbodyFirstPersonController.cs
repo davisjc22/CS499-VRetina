@@ -154,12 +154,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     }
                     if(hit.transform.name == "Zoom In") // Acts as a zoom in button
                     {
-                        EyeBall.transform.localScale -= new Vector3(1, 1, 1);
+                        EyeBall.transform.localScale += new Vector3(1, 1, 1);
 
                     }
                     if(hit.transform.name == "Zoom Out") // Acts as a zoom out button
                     {
-                        EyeBall.transform.localScale += new Vector3(1, 1, 1);
+                        EyeBall.transform.localScale -= new Vector3(1, 1, 1);
                     }
                     
                     if(hit.transform.name == "Eyeball") // Clicking the eye will rotate it
