@@ -603,7 +603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4860769f920fe6642a175a2edb349c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToPlace: {fileID: 1265967747375218634, guid: 1f141c7e871619941a21b513523911c9,
+  objectToPlace: {fileID: 1166608886173827808, guid: 9cfeef5a5a8101146a2000d8bb9b9b33,
     type: 3}
   placementIndicator: {fileID: 20306562}
 --- !u!4 &475043960
