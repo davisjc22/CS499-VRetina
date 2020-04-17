@@ -33,6 +33,7 @@ public class getImages : MonoBehaviour
 
     private void Start()
     {
+        //StartCoroutine(getNumImages());
         totalImages = 8;
         folder = Application.persistentDataPath + "/retinaImages";
 
@@ -92,6 +93,7 @@ public class getImages : MonoBehaviour
             {
                 Debug.Log("request complete!");
                 string phrase = www.downloadHandler.text;
+                Debug.Log(phrase);
             }
         }
     }
