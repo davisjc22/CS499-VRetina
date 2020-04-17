@@ -86,4 +86,15 @@ public class ARTapToPlaceObject : MonoBehaviour
 
         }
     }
+
+    //Destroys the eyeball gameobject. This allows a new one to be placed from the update function
+    public void destroyEyeball()
+    {
+        if (EyeBall != null)
+        {
+            Destroy(EyeBall);
+            //EyeBall = null;
+            eyeballPlaced = false;
+        }
+    }
 }
