@@ -52,8 +52,7 @@ public class ARTapToPlaceObject : MonoBehaviour
         float heightFromFloor = .25f; //how high the eyeball should be off of the surface
         Vector3 newSpot = new Vector3(placementPose.position.x, heightFromFloor, placementPose.position.z); //retrieve the coordinates of the placement plane and add the height to it
         EyeBall = Instantiate(objectToPlace, newSpot, placementPose.rotation); //create the eyeball
-        EyeBall.name = "EyeBall";
-
+        EyeBall.gameObject.name = "Eyeball";
         eyeballPlaced = true; //the eyeball has been placed
         placementIndicator.SetActive(false); //turn off the placement indicator square since the eyeball has been placed
     }
