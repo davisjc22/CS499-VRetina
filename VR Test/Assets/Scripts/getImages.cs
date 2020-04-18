@@ -144,6 +144,7 @@ public class getImages : MonoBehaviour
         newButton.transform.SetParent(buttonholder.transform, false);
         newButton.GetComponent<RawImage>().texture = texture;
         newButton.GetComponent<changeImage>().texture = texture;
+        newButton.GetComponent<changeImage>().labels = retinaImage.labels;
     }
 
     private IEnumerator findImages()
