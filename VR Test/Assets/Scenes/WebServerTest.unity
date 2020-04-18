@@ -213,6 +213,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d3d6a374310644c8858842f526cd88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  retinaImage:
+    id: -1
+    name: 
+    xSize: 0
+    ySize: 0
+    filetype: 
+    official: 0
+    uploaded: 
+    image: 
+    labels: []
   imageId: 2
 --- !u!1 &1225601021
 GameObject:
