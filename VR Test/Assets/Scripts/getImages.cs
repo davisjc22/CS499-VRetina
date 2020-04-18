@@ -8,19 +8,6 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 using System.Runtime.Serialization.Formatters.Binary;
 
-[Serializable]
-public class RetinaImage
-{
-    public int id = -1;
-    public string name = "";
-    public int xSize = 0;
-    public int ySize = 0;
-    public string filetype = "";
-    public bool official = false;
-    public string uploaded = "";
-    public string imgBase64 = "";
-}
-
 public class getImages : MonoBehaviour
 {
     public GameObject buttonholder;
@@ -98,6 +85,8 @@ public class getImages : MonoBehaviour
         }
     }
 
+
+
     public IEnumerator GetImage(int id, string dest)
     {
         RetinaImage retinaImage = new RetinaImage();
@@ -116,49 +105,14 @@ public class getImages : MonoBehaviour
             }
             else
             {
-                Debug.Log("request complete!");
+                Debug.Log("Webserver request complete");
 
                 string phrase = www.downloadHandler.text;
-                string[] words = phrase.Split(',');
 
-                foreach (var word in words)
-                {
-                    string[] tokens = word.Split('"');
-                    switch (tokens[1])
-                    {
-                        case "id":
-                            retinaImage.id = Convert.ToInt32(tokens[3]);
-                            break;
-                        case "name":
-                            retinaImage.name = tokens[3];
-                            break;
-                        case "xSize":
-                            retinaImage.xSize = Convert.ToInt32(tokens[3]);
-                            break;
-                        case "ySize":
-                            retinaImage.ySize = Convert.ToInt32(tokens[3]);
-                            break;
-                        case "filetype":
-                            retinaImage.filetype = tokens[3];
-                            break;
-                        case "official":
-                            if (tokens[3] == "1")
-                            {
-                                retinaImage.official = true;
-                            }
-                            else
-                            {
-                                retinaImage.official = false;
-                            }
-                            break;
-                        case "uploaded":
-                            retinaImage.uploaded = tokens[3];
-                            break;
-                        case "image":
-                            retinaImage.imgBase64 = tokens[3];
-                            break;
-                    }
-                }
+                retinaImage = JsonUtility.FromJson<RetinaImage>(phrase);
+
+                Debug.Log("Retina image object updated.");
+
                 SaveToFile(retinaImage, dest);
                 runs--;
             }
@@ -180,7 +134,7 @@ public class getImages : MonoBehaviour
 
     private IEnumerator makeButton(RetinaImage retinaImage)
     {
-        byte[] imageBytes = Convert.FromBase64String(retinaImage.imgBase64);
+        byte[] imageBytes = Convert.FromBase64String(retinaImage.image);
         Texture2D texture = new Texture2D(retinaImage.xSize, retinaImage.ySize);
         yield return texture.LoadImage(imageBytes);
 
@@ -213,7 +167,7 @@ public class getImages : MonoBehaviour
                 retinaImage.filetype = tempRetinaImage.filetype;
                 retinaImage.official = tempRetinaImage.official;
                 retinaImage.uploaded = tempRetinaImage.uploaded;
-                retinaImage.imgBase64 = tempRetinaImage.imgBase64;
+                retinaImage.image = tempRetinaImage.image;
                 f.Close();
 
                 StartCoroutine(makeButton(retinaImage));
