@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 2225733908846523547}
   - component: {fileID: 2225733908846523549}
   - component: {fileID: -3081024690750759321}
+  - component: {fileID: -1685301060541487075}
+  - component: {fileID: 9149442646843321213}
   m_Layer: 5
   m_Name: Gallery-RawImage
   m_TagString: Untagged
@@ -86,7 +88,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: -3081024690750759321}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -114,6 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   texture: {fileID: 0}
+  labels: []
 --- !u!114 &-3081024690750759321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,3 +142,27 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &-1685301060541487075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2225733908846523522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35d93c6531305f4b939f5135c4bcc30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9149442646843321213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2225733908846523522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67b775984ba55c441819eac429680f85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
