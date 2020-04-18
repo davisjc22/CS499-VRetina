@@ -15,7 +15,7 @@ public class changeImage : MonoBehaviour
         GameObject view = GameObject.Find("Scroll View");
         view.gameObject.SetActive(false);
 
-        GameObject eyeball = GameObject.Find("EyeBall");
+        GameObject eyeball = GameObject.Find("Eyeball");
         eyeball.GetComponent<Renderer>().material.mainTexture = texture;
         this.GetComponent<DestroyMesh>().DestroyLabels(eyeball);
         this.GetComponent<CreateMesh>().CreateLabels(labels, eyeball);

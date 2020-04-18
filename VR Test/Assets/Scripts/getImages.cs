@@ -13,15 +13,13 @@ public class getImages : MonoBehaviour
     public GameObject buttonholder;
     public GameObject button;
     public GameObject updateLoading;
+    private string listIds;
     private string folder;
-    private int totalImages = 0;
     private int runs = 0;
     private bool updating = true;
 
     private void Start()
     {
-        //StartCoroutine(getNumImages());
-        totalImages = 8;
         folder = Application.persistentDataPath + "/retinaImages";
 
         if (!Directory.Exists(folder))
@@ -30,18 +28,23 @@ public class getImages : MonoBehaviour
         }
 
         StartCoroutine(findImages());
-        updateFolder();
+        StartCoroutine(updateFolder());
     }
 
-    private void updateFolder()
+    private IEnumerator updateFolder()
     {
-        for (int image = 0; image < totalImages; image++)
+        yield return StartCoroutine(getNumImages());
+
+        int[] imageIds = Array.ConvertAll(listIds.Split(','), int.Parse);
+
+        Debug.Log("Updating Folder.");
+        for (int image = 0; image < imageIds.Length; image++)
         {
-            string filepath = folder + "/" + image.ToString() + ".dat";
+            string filepath = folder + "/" + imageIds[image].ToString() + ".dat";
             if (!File.Exists(filepath))
             {
                 runs++;
-                StartCoroutine(GetImage(image, filepath));           
+                StartCoroutine(GetImage(imageIds[image], filepath));
             }
         }
 
@@ -80,12 +83,11 @@ public class getImages : MonoBehaviour
             {
                 Debug.Log("request complete!");
                 string phrase = www.downloadHandler.text;
+                listIds = phrase;
                 Debug.Log(phrase);
             }
         }
     }
-
-
 
     public IEnumerator GetImage(int id, string dest)
     {
