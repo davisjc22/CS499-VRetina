@@ -170,6 +170,7 @@ public class getImages : MonoBehaviour
                 retinaImage.official = tempRetinaImage.official;
                 retinaImage.uploaded = tempRetinaImage.uploaded;
                 retinaImage.image = tempRetinaImage.image;
+                retinaImage.labels = tempRetinaImage.labels;
                 f.Close();
 
                 StartCoroutine(makeButton(retinaImage));
