@@ -3,3 +3,11 @@
 * We have also recreated the project in Unity (to make development easier and increase compatibility with Android and iOS as well as VR and AR). 
 * We have also had 2 team meetings in which we talked about the two assignments from the class so far. 
 * Currently, we are working on the Requirements Specification Document, Metrics, and Planning and Estimation Document.
+
+3/30 - 4/17
+* As far as meetings go, every week as a group we have met via Zoom to discuss the progress we have made and have had stand up meetings with Dr. Hayes to discuss what we have accomplished, what we will work on next, and if we have any issues though GroupMe.
+* We have emailed with Paras several times over the past few weeks, just giving him an update and answering a few questions he had about how we were implementing the labelling.
+* Since my main task was to work on the UI, I have gone through a few tutorials (https://www.youtube.com/watch?time_continue=186&v=XZ4A1H82F7Q&feature=emb_logo&t=477s, https://www.youtube.com/watch?v=zc8ac_qUXQY) to learn about the best way to create several menus (start menu and in game menu). I also learned about how to create a switch button, but we did not end up using that as a UI feature.
+* I found a free asset package on the Unity asset store that contains buttons and other UI elements that we decided to use in the project. The package is called Quantum UI.
+* I spent a lot of time trying to make the UI look nice and scale well for various sized screens and switching between horizontal and vertical screen rotations. 
+* This past week we met to discuss the final steps before the coding assignment. We decided to finish up our individual parts by this past Friday and then meet via Zoom to merge all our branches into one. The meeting went well, and we decided there were still a few more things to tweak, so we met again on Saturday. The Saturday meeting was sort, we finished merging all the code, and finally we split up the coding assignment and are working on having that done Sunday night before it is due. 
