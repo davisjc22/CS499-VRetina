@@ -18,6 +18,7 @@ public class ARTapToPlaceObject : MonoBehaviour
 
     private bool eyeballPlaced = false;
     private GameObject EyeBall;
+
     void Start()
     {
         arOrigin = FindObjectOfType<ARSessionOrigin>();
@@ -31,20 +32,8 @@ public class ARTapToPlaceObject : MonoBehaviour
             UpdatePlacementIndicator();
 
             if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-            {
                 PlaceObject();
-            }
         }
-        //Once the eyeball is in the scene, it can be manipulated
-        else
-        {
-            if (Input.GetMouseButton(0))//if the screen is touched or mouse is held down, the eyeball will rotate
-            {
-                //GameObject EyeBall = GameObject.Find("Eyeball"); //Instantiate the eyeball once it is placed in AR instead of searching for it
-                //EyeBall.transform.Rotate(0, 1, 0); 
-            }
-        }
-
     }
 
     private void PlaceObject()
@@ -68,11 +57,12 @@ public class ARTapToPlaceObject : MonoBehaviour
             placementIndicator.SetActive(false);
     }
 
-    private void UpdatePlacementPose() //Moves the placement plane around
+    //Moves the placement plane around
+    private void UpdatePlacementPose()
     {
         var screenCenter = Camera.current.ViewportToScreenPoint(new Vector3(0.5f,0.5f));
         var hits = new List<ARRaycastHit>();
-        //arOrigin.Raycast(screenCenter, hits, TrackableType.Planes);
+
         arOrigin.GetComponent<ARRaycastManager>().Raycast(screenCenter, hits, TrackableType.Planes);
         placementPoseIsValid = hits.Count > 0;
         if (placementPoseIsValid)
@@ -92,7 +82,6 @@ public class ARTapToPlaceObject : MonoBehaviour
         if (EyeBall != null)
         {
             Destroy(EyeBall);
-            //EyeBall = null;
             eyeballPlaced = false;
         }
     }

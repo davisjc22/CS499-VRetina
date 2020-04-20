@@ -13,9 +13,8 @@ public class DestroyMesh : MonoBehaviour
     public void DestroyLabels(GameObject eyeball)
     {
         GameObject labels = GameObject.Find("Labels");
+        
         if (labels != null)
-        {
             Destroy(labels);
-        }
     }
 }

@@ -20,9 +20,8 @@ public class changeImage : MonoBehaviour
 
         GameObject eyeball = GameObject.Find("Eyeball");
         eyeball.GetComponent<Renderer>().material.mainTexture = texture;
-        Debug.Log("Updated Eyeball");
+
         this.GetComponent<DestroyMesh>().DestroyLabels(eyeball);
         this.GetComponent<CreateMesh>().CreateLabels(labels, eyeball);
     }
 }
-

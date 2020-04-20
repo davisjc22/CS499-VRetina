@@ -23,9 +23,7 @@ public class getImages : MonoBehaviour
         folder = Application.persistentDataPath + "/retinaImages";
 
         if (!Directory.Exists(folder))
-        {
             Directory.CreateDirectory(folder);
-        }
 
         StartCoroutine(findImages());
         StartCoroutine(updateFolder());
@@ -51,9 +49,7 @@ public class getImages : MonoBehaviour
         updating = false;
 
         if (runs == 0)
-        {
             updateLoading.gameObject.SetActive(false);
-        }
     }
 
     private void Update()
@@ -61,9 +57,7 @@ public class getImages : MonoBehaviour
         if (!updating)
         {
             if (runs == 0)
-            {
                 updateLoading.gameObject.SetActive(false);
-            }
         }
     }
 
@@ -126,7 +120,7 @@ public class getImages : MonoBehaviour
         FileStream file;
 
         file = File.Create(dest);
-      
+
         BinaryFormatter bf = new BinaryFormatter();
         bf.Serialize(file, retinaImage);
         file.Close();
