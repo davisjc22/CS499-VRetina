@@ -55,5 +55,10 @@ public class Main : MonoBehaviour
         SceneManager.LoadScene("ARDemo");
     }
 
+    public void toggleMenuAnimation(Animator anim)
+    {
+        bool isOpen = anim.GetBool("Open");
+        anim.SetBool("Open", !isOpen);
+    }
 
 }
