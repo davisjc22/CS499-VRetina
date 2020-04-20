@@ -33,7 +33,7 @@ public class ZoomOptions : MonoBehaviour
     {
         //GameObject EyeBall = GameObject.Find("Eyeball");
         Debug.Log("Zoom In Button Hit");
-        EyeBall.transform.localScale -= new Vector3(1, 1, 1);
+        EyeBall.transform.localScale += new Vector3(1, 1, 1);
     }
 
     // Function to zoom out of the eye based on the slider
@@ -41,7 +41,7 @@ public class ZoomOptions : MonoBehaviour
     {
         //GameObject EyeBall = GameObject.Find("Eyeball");
         Debug.Log("Zoom Out Button Hit");
-        EyeBall.transform.localScale += new Vector3(1, 1, 1);
+        EyeBall.transform.localScale -= new Vector3(1, 1, 1);
     }
 
     public void updateZoom()
