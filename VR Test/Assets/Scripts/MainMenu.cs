@@ -10,7 +10,8 @@ public class MainMenu : MonoBehaviour
     private GameObject EyeBall;
     private Vector3 EyeOrigin;
     private Vector3 CameraOrigin;
-    private float distanceBetween;
+    private float DistanceBetween;
+    public bool MenuActive = false;
 
     void Start()
     {
@@ -25,7 +26,7 @@ public class MainMenu : MonoBehaviour
             EyeBall = GameObject.Find("Eyeball");
             EyeOrigin = EyeBall.transform.position;
             CameraOrigin = GameObject.FindWithTag("MainCamera").transform.position;
-            distanceBetween = Vector3.Distance(CameraOrigin, EyeOrigin);
+            DistanceBetween = Vector3.Distance(CameraOrigin, EyeOrigin);
         }
     }
 
@@ -47,10 +48,25 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Start");
     }
 
-    public void toggleMenuAnimation(Animator anim)
+    public void toggleMenuAnimation(GameObject Menu)
     {
+        Animator anim = Menu.GetComponent<Animator>();
         bool isOpen = anim.GetBool("Open");
-        anim.SetBool("Open", !isOpen);
+
+        if (MenuActive)
+        {
+            anim.SetBool("Open", !isOpen);
+            MenuActive = !MenuActive;
+            Menu.SetActive(MenuActive);
+        }
+        else
+        {
+            MenuActive = !MenuActive;
+            Menu.SetActive(MenuActive);
+            anim.SetBool("Open", !isOpen);
+        }
+        Debug.Log("IsOpen: " + isOpen);
+        
     }
 
     IEnumerator LoadDevice(string newDevice)
@@ -66,16 +82,12 @@ public class MainMenu : MonoBehaviour
     // Function to zoom in to the eye based on the slider
     public void ZoomIn()
     {
-        //GameObject EyeBall = GameObject.Find("Eyeball");
-        Debug.Log("Zoom In Button Hit");
         EyeBall.transform.localScale -= new Vector3(1, 1, 1);
     }
 
     // Function to zoom out of the eye based on the slider
     public void ZoomOut()
     {
-        //GameObject EyeBall = GameObject.Find("Eyeball");
-        Debug.Log("Zoom Out Button Hit");
         EyeBall.transform.localScale += new Vector3(1, 1, 1);
     }
 
@@ -85,8 +97,7 @@ public class MainMenu : MonoBehaviour
         //slider value * distance between camera and eyeball origin = new position
 
         float zoomVal = GameObject.Find("Zoom Slider").GetComponent<Slider>().value;
-        Debug.Log("Zoom Slider Hit");
-        Vector3 changeVal = new Vector3(0, 0, -distanceBetween*zoomVal) + EyeOrigin;
+        Vector3 changeVal = new Vector3(0, 0, -DistanceBetween*zoomVal) + EyeOrigin;
         EyeBall.transform.position = changeVal;
     }
 }
