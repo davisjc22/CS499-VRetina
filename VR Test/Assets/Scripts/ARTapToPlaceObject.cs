@@ -41,7 +41,7 @@ public class ARTapToPlaceObject : MonoBehaviour
             if (Input.GetMouseButton(0))//if the screen is touched or mouse is held down, the eyeball will rotate
             {
                 //GameObject EyeBall = GameObject.Find("Eyeball"); //Instantiate the eyeball once it is placed in AR instead of searching for it
-                EyeBall.transform.Rotate(0, 1, 0);
+                //EyeBall.transform.Rotate(0, 1, 0); 
             }
         }
 
