@@ -1,0 +1,10 @@
+Progress made through Feb 3rd - March 25th:
+The inital progress that was made on VRetina was majorly concerned with getting an initial project setup in Unity. 
+A VR test environment was made with a sample eyeball shape in the Unity Scene. I tweaked and toyed with  Unity build settings
+to see if we could successfully build a proper VR google cardboard application to a mobile device. Using a a teammates mobile 
+Android device, we were able to run a successfull VR version of the app
+
+Progress made through March 25th - April 21st:
+Most of the progress made in the latter half of the class has been based on the correspondance with Paras and what his expectations
+for ther app are. I have mostly been working on the UI reticle and the Mac build settings. I have also spent time unsuccessfully 
+pursuing an implementation for component highlighting on the eyeball image
