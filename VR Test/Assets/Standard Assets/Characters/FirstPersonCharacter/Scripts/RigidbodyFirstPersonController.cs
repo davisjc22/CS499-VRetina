@@ -5,7 +5,8 @@ using UnityEngine.XR;
 using UnityEngine.UI;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
@@ -91,6 +92,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public MovementSettings movementSettings = new MovementSettings();
         public MouseLook mouseLook = new MouseLook();
         public AdvancedSettings advancedSettings = new AdvancedSettings();
+        public EventSystem EventSystem;
 
 
         private Rigidbody m_RigidBody;
@@ -146,33 +148,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
               GameObject Reticle = GameObject.Find("Reticle");
               Reticle.GetComponent<Image>().color = new Color32(0,255,225,255);
               GameObject EyeBall = GameObject.Find("Eyeball");
-              RaycastHit hit;
-              Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-              if(Physics.Raycast(ray, out hit))
+              RaycastHit hit;         
+              if(Physics.Raycast(cam.transform.position, Reticle.transform.forward, out hit))
               {
+                  Button UIButton;
+                  if (hit.transform.gameObject.TryGetComponent<Button>(out UIButton))
+                      UIButton.onClick.Invoke();
                   Debug.Log("name = " + hit.transform.name);
-                  if(hit.transform.name == "Main Menu Cube") // Acts as return to main menu button
-                  {
-                      SceneManager.LoadScene("Start");
-                  }
-                  if(hit.transform.name == "Zoom In") // Acts as a zoom in button
-                  {
-                      EyeBall.transform.localScale += new Vector3(1, 1, 1);
-
-                  }
-                  if(hit.transform.name == "Zoom Out") // Acts as a zoom out button
-                  {
-                      EyeBall.transform.localScale -= new Vector3(1, 1, 1);
-                  }
-
-                  if(hit.transform.name == "Eyeball") // Clicking the eye will rotate it
-                  {
-                      EyeBall.transform.Rotate(0, 30, 0);
-                  }
               }
-              //m_Jump = true;
-              // GameObject EyeBall = GameObject.Find("Eyeball");
-              // EyeBall.transform.Rotate(0, 30, 0);
+
 
           }
           if (Input.GetMouseButtonUp(0) && !m_Jump) {

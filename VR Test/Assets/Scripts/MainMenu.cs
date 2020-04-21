@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using UnityEngine.XR;
+using UnityEngine.UI;
+using UnityStandardAssets.CrossPlatformInput;
+using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 public class MainMenu : MonoBehaviour
 {
@@ -15,7 +18,7 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(LoadDevice(""));
+        
     }
 
     // Update is called once per frame
@@ -28,6 +31,11 @@ public class MainMenu : MonoBehaviour
             CameraOrigin = GameObject.FindWithTag("MainCamera").transform.position;
             DistanceBetween = Vector3.Distance(CameraOrigin, EyeOrigin);
         }
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            LoadStartMenu();
+        }
     }
 
     //Loads the VR mode of the app
@@ -39,11 +47,12 @@ public class MainMenu : MonoBehaviour
     //Loads the AR mode of the app
     public void LoadAR()
     {
+        StartCoroutine(LoadDevice(""));
         SceneManager.LoadScene("ARDemo");
     }
 
     // Loads the main menu scene
-    public void LoadMainMenu()
+    public void LoadStartMenu()
     {
         SceneManager.LoadScene("Start");
     }
@@ -82,13 +91,13 @@ public class MainMenu : MonoBehaviour
     // Function to zoom in to the eye based on the slider
     public void ZoomIn()
     {
-        EyeBall.transform.localScale -= new Vector3(1, 1, 1);
+        EyeBall.transform.position += new Vector3(0, 0, .5f);
     }
 
     // Function to zoom out of the eye based on the slider
     public void ZoomOut()
     {
-        EyeBall.transform.localScale += new Vector3(1, 1, 1);
+        EyeBall.transform.position -= new Vector3(0, 0, .5f);
     }
 
     public void updateZoom()
@@ -100,4 +109,5 @@ public class MainMenu : MonoBehaviour
         Vector3 changeVal = new Vector3(0, 0, -DistanceBetween*zoomVal) + EyeOrigin;
         EyeBall.transform.position = changeVal;
     }
+
 }
