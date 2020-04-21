@@ -14,9 +14,9 @@ VRetina is an extended reality application that allows for viewing of static hig
 * Google VR Android and Google VR iOS*
 * Unity’s AR Foundation
 * ARCore XR Plugin, ARKit XR Plugin
-* Quantum UI
+* [Quantum UI](https://assetstore.unity.com/packages/tools/gui/quantum-ui-162077)
 
-*Google VR for Android and iOS is deprecated and will be removed in Unity 2020.1 A new Unity XR Plugin is in the works. The thread following the plugin can be found here.
+***Google VR for Android and iOS is deprecated and will be removed in Unity 2020.1 A new Unity XR Plugin is in the works. The thread following the plugin can be found [here](https://github.com/googlevr/cardboard/issues/8).**
 
 ## Setting Up Unity
 1. Install Unity Hub.
