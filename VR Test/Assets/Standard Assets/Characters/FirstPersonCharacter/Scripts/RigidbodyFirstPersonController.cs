@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.UI;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityEngine.SceneManagement;
 
@@ -138,40 +139,46 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void Update()
         {
-            RotateView();
+          RotateView();
 
-            if (Input.GetMouseButtonDown(0) && !m_Jump)
-            {
-                GameObject EyeBall = GameObject.Find("Eyeball");
-                RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if(Physics.Raycast(ray, out hit))
-                {
-                    Debug.Log("name = " + hit.transform.name);
-                    if(hit.transform.name == "Main Menu Cube") // Acts as return to main menu button
-                    {
-                        SceneManager.LoadScene("Start");
-                    }
-                    if(hit.transform.name == "Zoom In") // Acts as a zoom in button
-                    {
-                        EyeBall.transform.localScale += new Vector3(1, 1, 1);
+          if (Input.GetMouseButtonDown(0) && !m_Jump)
+          {
+              GameObject Reticle = GameObject.Find("Reticle");
+              Reticle.GetComponent<Image>().color = new Color32(0,255,225,255);
+              GameObject EyeBall = GameObject.Find("Eyeball");
+              RaycastHit hit;
+              Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+              if(Physics.Raycast(ray, out hit))
+              {
+                  Debug.Log("name = " + hit.transform.name);
+                  if(hit.transform.name == "Main Menu Cube") // Acts as return to main menu button
+                  {
+                      SceneManager.LoadScene("Start");
+                  }
+                  if(hit.transform.name == "Zoom In") // Acts as a zoom in button
+                  {
+                      EyeBall.transform.localScale += new Vector3(1, 1, 1);
 
-                    }
-                    if(hit.transform.name == "Zoom Out") // Acts as a zoom out button
-                    {
-                        EyeBall.transform.localScale -= new Vector3(1, 1, 1);
-                    }
-                    
-                    if(hit.transform.name == "Eyeball") // Clicking the eye will rotate it
-                    {
-                        EyeBall.transform.Rotate(0, 30, 0);
-                    }
-                }
-                //m_Jump = true;
-                // GameObject EyeBall = GameObject.Find("Eyeball");
-                // EyeBall.transform.Rotate(0, 30, 0);
+                  }
+                  if(hit.transform.name == "Zoom Out") // Acts as a zoom out button
+                  {
+                      EyeBall.transform.localScale -= new Vector3(1, 1, 1);
+                  }
 
-            }
+                  if(hit.transform.name == "Eyeball") // Clicking the eye will rotate it
+                  {
+                      EyeBall.transform.Rotate(0, 30, 0);
+                  }
+              }
+              //m_Jump = true;
+              // GameObject EyeBall = GameObject.Find("Eyeball");
+              // EyeBall.transform.Rotate(0, 30, 0);
+
+          }
+          if (Input.GetMouseButtonUp(0) && !m_Jump) {
+            GameObject Reticle = GameObject.Find("Reticle");
+            Reticle.GetComponent<Image>().color = new Color32(255,255,255,255);
+          }
         }
 
 
@@ -258,7 +265,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private Vector2 GetInput()
         {
-            
+
             Vector2 input = new Vector2
                 {
                     x = CrossPlatformInputManager.GetAxis("Horizontal"),
