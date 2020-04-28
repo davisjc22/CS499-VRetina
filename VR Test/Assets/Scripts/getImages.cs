@@ -29,6 +29,7 @@ public class getImages : MonoBehaviour
         StartCoroutine(updateFolder());
     }
 
+    //Updates image folder to match database
     private IEnumerator updateFolder()
     {
         yield return StartCoroutine(getNumImages());
@@ -61,6 +62,7 @@ public class getImages : MonoBehaviour
         }
     }
 
+    //Gets list of ids of images in the database
     private IEnumerator getNumImages()
     {
         WWWForm form = new WWWForm();
@@ -83,6 +85,7 @@ public class getImages : MonoBehaviour
         }
     }
 
+    //Sends request to database to get an image
     public IEnumerator GetImage(int id, string dest)
     {
         RetinaImage retinaImage = new RetinaImage();
@@ -115,6 +118,7 @@ public class getImages : MonoBehaviour
         }
     }
 
+    //Saves image file from database
     public void SaveToFile(RetinaImage retinaImage, string dest)
     {
         FileStream file;
@@ -128,8 +132,10 @@ public class getImages : MonoBehaviour
         StartCoroutine(makeButton(retinaImage));
     }
 
+    //Creates a button with image 
     private IEnumerator makeButton(RetinaImage retinaImage)
     {
+        //Gets image bytes from file and creates texture to place on button
         byte[] imageBytes = Convert.FromBase64String(retinaImage.image);
         Texture2D texture = new Texture2D(retinaImage.xSize, retinaImage.ySize);
         yield return texture.LoadImage(imageBytes);
@@ -139,8 +145,14 @@ public class getImages : MonoBehaviour
         newButton.GetComponent<RawImage>().texture = texture;
         newButton.GetComponent<changeImage>().texture = texture;
         newButton.GetComponent<changeImage>().labels = retinaImage.labels;
+
+        //Adds collider to button that spans the size of the cell of the grid layout group
+        //The collider is only needed for VR
+        BoxCollider collider = newButton.gameObject.AddComponent<BoxCollider>();
+        collider.size = new Vector3(buttonholder.GetComponent<GridLayoutGroup>().cellSize.x, buttonholder.GetComponent<GridLayoutGroup>().cellSize.y);
     }
 
+    //Gets all image files from folder to create buttons
     private IEnumerator findImages()
     {
         DirectoryInfo dir = new DirectoryInfo(folder);
